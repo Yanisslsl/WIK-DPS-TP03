@@ -35,7 +35,6 @@ async fn router(req: Request<Body>) -> Result<Response<Body>, Infallible> {
     match (req.method(), req.uri().path()) {
         (&Method::GET, "/ping") => {
             response.headers_mut().insert("Content-Type", "application/json".parse().unwrap());
-            assert!(!response.headers().is_empty());
             *response.body_mut() = Body::from(convert(req.headers()).to_string());
 
         },
