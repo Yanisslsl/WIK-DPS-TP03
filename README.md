@@ -2,6 +2,12 @@
 
 # Getting Started
 
+### Clone the project 
+
+``` 
+git clone https://github.com/Yanisslsl/WIK-DPS-TP01.git && cd WIK-DPS-TP01
+```
+
 #### - Compile local packages and all of their dependencies.
 ```
 cargo build
