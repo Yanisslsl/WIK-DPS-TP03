@@ -14,7 +14,7 @@ async fn main() {
 
     let port = match port {
         Ok(port) => port.parse().unwrap(),
-        Err(error) => panic!("Error while trying to get your PING_LISTEN_PORT environment variable, please do not forget to set it before running your server : {:?}", error),
+        Err(_) => 8080,
     };
     let addr = SocketAddr::from(([127, 0, 0, 1], port));
 
