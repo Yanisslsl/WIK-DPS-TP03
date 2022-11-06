@@ -23,3 +23,23 @@ cargo run
 
 Hit localhost:[SERVER_PORT]/ping to get your request headers as response.
 Any other method or paths will repond a 404 Not Found status.
+
+
+#### Docker
+
+##### - Build the image
+```
+docker build -t wik-dps-tp01 .
+``` 
+##### - Run the container
+``` 
+docker run -p 3008:3008 wik-dps-tp01
+```
+#### Build multi-stage docker image
+```
+docker build -t wik-dps-tp01:multi-stage -f Dockerfile.multi-stage .
+```
+#### Run multi-stage docker image
+```
+docker run -p 3008:3008 wik-dps-tp01:multi-stage
+```
