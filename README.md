@@ -29,17 +29,17 @@ Any other method or paths will repond a 404 Not Found status.
 
 ##### - Build the image
 ```
-docker build -t wik-dps-tp01 .
+docker build -t wik-dps-tp02 .
 ``` 
 ##### - Run the container
 ``` 
-docker run -p 3008:3008 wik-dps-tp01
+docker run -p 3008:3008 wik-dps-tp02
 ```
 #### Build multi-stage docker image
 ```
-docker build -t wik-dps-tp01:multi-stage -f Dockerfile.multi-stage .
+docker build -t wik-dps-tp02:multi-stage -f Dockerfile.multi-stage .
 ```
 #### Run multi-stage docker image
 ```
-docker run -p 3008:3008 wik-dps-tp01:multi-stage
+docker run -p 3008:3008 wik-dps-tp02:multi-stage
 ```

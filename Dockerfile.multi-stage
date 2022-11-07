@@ -1,5 +1,7 @@
 FROM rust:1-slim as build
 
+USER root
+
 RUN USER=root cargo new --bin course_1
 
 WORKDIR /course_1
