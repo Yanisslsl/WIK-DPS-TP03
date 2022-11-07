@@ -22,7 +22,7 @@ RUN cargo build --release
 
 FROM rust:1-slim
 
-ENV PING_LISTEN_PORT=80
+ENV PING_LISTEN_PORT=3000
 # set the startup command to run your binary
 
 COPY --from=build /course_1/target/release/course_1 .

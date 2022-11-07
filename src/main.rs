@@ -6,6 +6,7 @@ use hyper::{Body, Request, Response, Server, HeaderMap};
 use hyper::service::{make_service_fn, service_fn};
 use hyper::{Method, StatusCode};
 use dotenv::dotenv;
+use gethostname::gethostname;
 
 #[tokio::main]
 async fn main() {
@@ -16,7 +17,7 @@ async fn main() {
         Ok(port) => port.parse().unwrap(),
         Err(_) => 8080,
     };
-    let addr = SocketAddr::from(([127, 0, 0, 1], port));
+    let addr = SocketAddr::from(([0, 0, 0, 0], port));
 
     let make_svc = make_service_fn(|_connß| async {
         Ok::<_, Infallible>(service_fn(router))
@@ -32,6 +33,7 @@ async fn main() {
 async fn router(req: Request<Body>) -> Result<Response<Body>, Infallible> {
     let mut response = Response::new(Body::empty());
 
+    println!("Hostname: {:?}", gethostname());
     match (req.method(), req.uri().path()) {
         (&Method::GET, "/ping") => {
             response.headers_mut().insert("Content-Type", "application/json".parse().unwrap());
